@@ -1,0 +1,56 @@
+import Image from "next/image";
+import { useQuery } from "@tanstack/react-query";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+
+export const ListProjects = () => {
+  const supabase = useSupabaseClient();
+  const getProjects = async () => {
+    let { data: projects, error } = await supabase.from("projects").select("*");
+    console.log(error);
+    return projects;
+  };
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["projects"],
+    queryFn: getProjects,
+  });
+
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col-12">
+          <table className="table table-striped">
+            <thead className="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Client</th>
+                <th scope="col">Done</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data &&
+                data.map((project) => {
+                  return (
+                    <tr>
+                      <td></td>
+                      <td>{project.name}</td>
+                      <td>{project.client_id}</td>
+                      <td>{project.completed ? "YES" : "NO"} </td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-12 d-flex justify-content-end">
+          <button type="button" class="btn btn-success">
+            Add Project
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};

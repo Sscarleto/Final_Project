@@ -1,3 +1,5 @@
+import { ListProjects } from "@/components/ListProjects";
+import { NavBar } from "@/components/NavBar";
 import { useSecurePage } from "@/lib/useSecurePage";
 import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
 
@@ -7,14 +9,8 @@ const Dashboard = () => {
 
   return (
     <div>
-      Dashboard
-      <button
-        onClick={() => {
-          supabase.auth.signOut();
-        }}
-      >
-        Log out
-      </button>
+      <NavBar />
+      <ListProjects />
     </div>
   );
 };
