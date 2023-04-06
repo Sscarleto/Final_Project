@@ -1,11 +1,15 @@
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useEffect } from "react";
+import Link from "next/link";
 
 export const ListProjects = () => {
   const supabase = useSupabaseClient();
   const getProjects = async () => {
-    let { data: projects, error } = await supabase.from("projects").select("*");
+    let { data: projects, error } = await supabase
+      .from("projects")
+      .select("*, clients(*)");
     console.log(error);
     return projects;
   };
@@ -35,7 +39,7 @@ export const ListProjects = () => {
                     <tr>
                       <td></td>
                       <td>{project.name}</td>
-                      <td>{project.client_id}</td>
+                      <td>{project.clients.name}</td>
                       <td>{project.completed ? "YES" : "NO"} </td>
                     </tr>
                   );
@@ -46,9 +50,9 @@ export const ListProjects = () => {
       </div>
       <div className="row">
         <div className="col-12 d-flex justify-content-end">
-          <button type="button" class="btn btn-success">
+          <Link className="btn btn-success" href="/addproject">
             Add Project
-          </button>
+          </Link>
         </div>
       </div>
     </div>
