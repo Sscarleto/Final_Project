@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
-import { useMutation, useQueries, useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
 
-export function Add() {
-  const router = useRouter();
+export function AddClient() {
+
+    const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -13,32 +14,17 @@ export function Add() {
   } = useForm();
   const user = useUser();
   const supabase = useSupabaseClient();
-  const getClients = async () => {
-    let { data: clients, error } = await supabase
-      .from("clients")
-      .select("*")
-      .eq("user_id", user.id);
-    return clients;
-  };
-  const createProject = async (payload) => {
-    const { data, error } = await supabase.from("projects").insert([
+  const createClient = async (payload) => {
+    const { data, error } = await supabase.from("clients").insert([
       {
         ...payload,
-        completed: false,
         user_id: user.id,
       },
     ]);
   };
 
-  const clients = useQuery({
-    queryKey: ["clients"],
-    queryFn: getClients,
-    initialData: [],
-    enabled: !!user,
-  });
-
   const mutation = useMutation({
-    mutationFn: createProject,
+    mutationFn: createClient,
   });
 
   const onSubmit = async (data) => {
@@ -48,7 +34,7 @@ export function Add() {
 
   return (
     <div className="container">
-      <h1>Add Project</h1>
+      <h1>Add Client</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="row">
           <div className="col-3">
@@ -66,74 +52,56 @@ export function Add() {
             </div>
             <div className="mb-3">
               <label for="formGroupExampleInput2" className="form-label">
-                Time Life
+                email
               </label>
               <input
-                {...register("time_life", {
+                {...register("email", {
                   valueAsNumber: true,
                 })}
-                type="number"
+                type="email"
                 className="form-control"
                 id="formGroupExampleInput2"
-                placeholder="Weeks"
+                placeholder="example@dom.com"
               />
             </div>
             <div className="mb-3">
               <label for="formGroupExampleInput2" className="form-label">
-                Numbers of Developers
+                Phone Number
               </label>
               <input
-                {...register("needed_devs", {
+                {...register("phone", {
                   valueAsNumber: true,
                 })}
                 type="number"
                 className="form-control"
                 id="formGroupExampleInput2"
-                placeholder="# Developers"
+                placeholder=""
               />
             </div>
             <div className="mb-3">
               <label for="formGroupExampleInput2" className="form-label">
-                Cost
+                WebSite
               </label>
               <input
-                {...register("cost", {
+                {...register("website", {
                   valueAsNumber: true,
                 })}
-                type="number"
+                type="text"
                 className="form-control"
                 id="formGroupExampleInput2"
-                placeholder="0000.00"
+                placeholder="www.dominio.com"
               />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="client_id" className="form-label">
-                Client
-              </label>
-              <select
-                {...register("client_id")}
-                className="form-control"
-                id="client_id"
-              >
-                {clients.data.map((client) => {
-                  return (
-                    <option value={client.id} key={client.id}>
-                      {client.name}
-                    </option>
-                  );
-                })}
-              </select>
             </div>
           </div>
-          <div className="row d-flex">
-            <div className="col-12 d-flex justify-content-end p-2 gap-3">
-              <a className="btn btn-danger" href="/dashboard">
-                Cancel
-              </a>
-              <button type="submit" className="btn btn-success">
-                Add
-              </button>
-            </div>
+        </div>
+        <div className="row d-flex">
+          <div className="col-12 d-flex justify-content-end p-2 gap-3">
+            <a className="btn btn-danger" href="/dashboard">
+              Cancel
+            </a>
+            <button type="submit" className="btn btn-success">
+              Add
+            </button>
           </div>
         </div>
       </form>

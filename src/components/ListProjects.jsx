@@ -49,9 +49,12 @@ export const ListProjects = () => {
         </div>
       </div>
       <div className="row">
-        <div className="col-12 d-flex justify-content-end">
+      <div className="col-12 d-flex justify-content-end p-2 gap-3">
           <Link className="btn btn-success" href="/addproject">
             Add Project
+          </Link>
+          <Link className="btn btn-success" href="/addclient">
+            Add Client
           </Link>
         </div>
       </div>
