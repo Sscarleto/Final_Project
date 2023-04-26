@@ -9,17 +9,6 @@ export const NavBar = () => {
     <div className="d-flex justify-content-end">
       <nav className="navbar navbar-expand-lg bg-body-tertiary ">
         <div className="container-fluid">
-          <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
           <button
             className="navbar-toggler"
             type="button"
@@ -32,7 +21,7 @@ export const NavBar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            className="collapse navbar-collapse p-2"
+            className="collapse navbar-collapse p-2 d-flex gap-3"
             id="navbarTogglerDemo01"
           >
             {user ? (
@@ -45,9 +34,14 @@ export const NavBar = () => {
                 Logout
               </button>
             ) : (
+              <>
               <Link className="btn btn-outline-primary" href="/login">
                 Login
               </Link>
+              <Link className="btn btn-outline-primary" href="/developer">
+                Register As Developer
+              </Link>
+              </>
             )}
           </div>
         </div>

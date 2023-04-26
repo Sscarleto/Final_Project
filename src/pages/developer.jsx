@@ -8,6 +8,7 @@ export default function Home() {
   return (
     <div>
       <NavBar />
+      <FreeLance />
       <Footer />
     </div>
   );

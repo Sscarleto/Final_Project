@@ -26,7 +26,6 @@ export const ListProjects = () => {
           <table className="table table-striped">
             <thead className="thead-dark">
               <tr>
-                <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Client</th>
                 <th scope="col">Done</th>
@@ -37,8 +36,7 @@ export const ListProjects = () => {
                 data.map((project) => {
                   return (
                     <tr>
-                      <td></td>
-                      <td>{project.name}</td>
+                      <td><Link href={`/project/${project.id}`}>{project.name}</Link></td>
                       <td>{project.clients.name}</td>
                       <td>{project.completed ? "YES" : "NO"} </td>
                     </tr>
