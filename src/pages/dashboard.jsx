@@ -1,17 +1,15 @@
 import { Footer } from "@/components/Footer";
-import { ListProjects } from "@/components/ListProjects";
 import { NavBar } from "@/components/NavBar";
 import { useSecurePage } from "@/lib/useSecurePage";
-import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
+import { DashboardNav } from "@/components/DashboardNav";
 
 const Dashboard = () => {
   useSecurePage();
-  const supabase = useSupabaseClient();
 
   return (
     <div>
       <NavBar />
-      <ListProjects />
+      <DashboardNav />
       <Footer />
     </div>
   );

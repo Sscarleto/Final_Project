@@ -36,7 +36,11 @@ export const ListProjects = () => {
                 data.map((project) => {
                   return (
                     <tr>
-                      <td><Link href={`/project/${project.id}`}>{project.name}</Link></td>
+                      <td>
+                        <Link href={`/project/${project.id}`}>
+                          {project.name}
+                        </Link>
+                      </td>
                       <td>{project.clients.name}</td>
                       <td>{project.completed ? "YES" : "NO"} </td>
                     </tr>
@@ -44,16 +48,13 @@ export const ListProjects = () => {
                 })}
             </tbody>
           </table>
-        </div>
-      </div>
-      <div className="row">
-      <div className="col-12 d-flex justify-content-end p-2 gap-3">
-          <Link className="btn btn-success" href="/addproject">
-            Add Project
-          </Link>
-          <Link className="btn btn-success" href="/addclient">
-            Add Client
-          </Link>
+          <div className="row">
+            <div className="col-12 d-flex justify-content-end p-2 gap-3">
+              <Link className="btn btn-success" href="/addproject">
+                Add Project
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
