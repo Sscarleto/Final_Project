@@ -15,38 +15,44 @@ export const ListClients = () => {
     queryKey: ["clients"],
     queryFn: getClients,
   });
+
   return (
-    <>
-      <table className="table table-striped">
-        <thead className="thead-dark">
-          <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Web</th>
-            <th scope="col">Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data &&
-            data.map((client) => {
-              return (
-                <tr>
-                  <td>
-                    {client.name}
-                  </td>
-                  <td>{}</td>
-                  <td>{} </td>
-                </tr>
-              );
-            })}
-        </tbody>
-      </table>
+    <div className="container">
       <div className="row">
-        <div className="col-12 d-flex justify-content-end p-2 gap-3">
-          <Link className="btn btn-success" href="/addclient">
-            Add Client
-          </Link>
+        <div className="col-12">
+          <table className="table table-striped">
+            <thead className="thead-dark">
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Email</th>
+                <th scope="col">WebSite</th>
+                <th scope="col">Client Since</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data &&
+                data.map((client) => {
+                  return (
+                    <tr>
+                      <td>{client.name}</td>
+                      <td>{client.phone}</td>
+                      <td>{client.email} </td>
+                      <td>{client.website} </td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+          <div className="row">
+            <div className="col-12 d-flex justify-content-end p-2 gap-3">
+              <Link className="btn btn-success" href="/addclient">
+                Add Client
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };

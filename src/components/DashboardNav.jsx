@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ListProjects } from "./ListProjects";
 import { ListClients } from "./ListClients";
+import { ListDevelopers } from "./ListDevelopers";
 
 export const DashboardNav = () => {
   const [tab, setTab] = useState("projects");
@@ -58,6 +59,7 @@ export const DashboardNav = () => {
           </button>
         </div>
       </nav>
+
       <div className="tab-content" id="nav-tabContent">
         <div
           className={
@@ -91,7 +93,7 @@ export const DashboardNav = () => {
           role="tabpanel"
           aria-aria-labelledby="nav-home-tab"
         >
-          Listar developers
+          <ListDevelopers />
         </div>
       </div>
     </>

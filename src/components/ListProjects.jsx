@@ -28,6 +28,9 @@ export const ListProjects = () => {
               <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Client</th>
+                <th scope="col">Time Life</th>
+                <th scope="col">Needed Developers</th>
+                <th scope="col">Cost $</th>
                 <th scope="col">Done</th>
               </tr>
             </thead>
@@ -42,6 +45,9 @@ export const ListProjects = () => {
                         </Link>
                       </td>
                       <td>{project.clients.name}</td>
+                      <td>{project.time_life}</td>
+                      <td>{project.needed_devs}</td>
+                      <td>{project.cost}</td>
                       <td>{project.completed ? "YES" : "NO"} </td>
                     </tr>
                   );
