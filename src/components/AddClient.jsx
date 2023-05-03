@@ -55,9 +55,7 @@ export function AddClient() {
                 email
               </label>
               <input
-                {...register("email", {
-                  valueAsNumber: true,
-                })}
+                {...register("email")}
                 type="email"
                 className="form-control"
                 id="formGroupExampleInput2"
@@ -83,9 +81,7 @@ export function AddClient() {
                 WebSite
               </label>
               <input
-                {...register("website", {
-                  valueAsNumber: true,
-                })}
+                {...register("website")}
                 type="text"
                 className="form-control"
                 id="formGroupExampleInput2"

@@ -8,7 +8,6 @@ export default function Home() {
   return (
     <div className="container">
       <NavBar />
-      <h1 className="display-3">DevProjects</h1>
       <Footer />
     </div>
   );

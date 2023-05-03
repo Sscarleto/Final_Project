@@ -13,9 +13,9 @@ export function ProjectProperty({ projects }) {
               <label className="p-2">Time Life: </label>
               <input value={projects.time_life}></input>
               <label className="p-2">Needed Developers: </label>
-              <input value={projects.needed_devs}></input>
+              <input className="col-2" value={projects.needed_devs}></input>
               <label className="p-2">Cost: </label>
-              <input value={projects.cost}></input>
+              <input className="col-4" value={projects.cost}></input>
             </div>
           </div>
           <label className="p-2">Done</label>
