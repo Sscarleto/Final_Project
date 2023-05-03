@@ -24,9 +24,9 @@ export default function ProjectPage() {
   });
 
   return (
-    <div>
-      {project && <ClienteDetails client={project.clients} />}
-      {project && <ProjectProperty projects={project} />}
+    <div className="container">
+      {project && <ClienteDetails className="p-4" client={project.clients} />}
+      {project && <ProjectProperty className="p-4" projects={project} />}
     </div>
   );
 }

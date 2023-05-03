@@ -6,8 +6,9 @@ import { FreeLance } from "@/components/FreeLance";
 
 export default function Home() {
   return (
-    <div>
+    <div className="container">
       <NavBar />
+      <h1 className="display-3">DevProjects</h1>
       <Footer />
     </div>
   );

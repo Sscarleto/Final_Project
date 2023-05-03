@@ -34,9 +34,9 @@ export function AddClient() {
 
   return (
     <div className="container">
-      <h1>Add Client</h1>
+      <h1 className="text-center">Add Client</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="row">
+        <div className="row justify-content-center">
           <div className="col-3">
             <div className="mb-3">
               <label for="formGroupExampleInput" className="form-label">

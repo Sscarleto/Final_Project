@@ -48,9 +48,9 @@ export function Add() {
 
   return (
     <div className="container">
-      <h1>Add Project</h1>
+      <h1 className="text-center p-2">Add Project</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="row">
+        <div className="row justify-content-center p-2">
           <div className="col-3">
             <div className="mb-3">
               <label for="formGroupExampleInput" className="form-label">
@@ -137,6 +137,6 @@ export function Add() {
           </div>
         </div>
       </form>
-    </div>
+      </div>
   );
 }

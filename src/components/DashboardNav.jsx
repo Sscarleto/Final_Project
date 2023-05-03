@@ -7,7 +7,7 @@ export const DashboardNav = () => {
   const [tab, setTab] = useState("projects");
 
   return (
-    <>
+    <div className="container">
       <nav>
         <div className="nav nav-tabs" id="nav-tab" role="tablist">
           <button
@@ -96,6 +96,6 @@ export const DashboardNav = () => {
           <ListDevelopers />
         </div>
       </div>
-    </>
+    </div>
   );
 };

@@ -39,6 +39,7 @@ export const ListClients = () => {
                       <td>{client.phone}</td>
                       <td>{client.email} </td>
                       <td>{client.website} </td>
+                      <td>{new Date(client.created_at).toISOString()}</td>
                     </tr>
                   );
                 })}
