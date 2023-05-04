@@ -7,7 +7,7 @@ const Dashboard = () => {
   useSecurePage();
 
   return (
-    <div>
+    <div className="container">
       <NavBar />
       <DashboardNav />
       <Footer />
