@@ -98,7 +98,7 @@ export function FreeLance() {
               <input
                 {...register("github")}
                 type="text"
-                name="linkedin"
+                name="github"
                 className="form-control"
                 placeholder="@github"
               />

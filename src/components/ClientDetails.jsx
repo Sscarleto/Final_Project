@@ -8,14 +8,22 @@ export function ClienteDetails({ client }) {
           <div className="card p-2">
             <div className="card-body">
               <h3 className="p-2">Client Details:</h3>
-              <label className="p-2">Name: </label>
-              <input value={client.name}></input>
-              <label className="p-2">Email: </label>
-              <input value={client.email}></input>
-              <label className="p-2">Phone: </label>
-              <input value={client.phone}></input>
-              <label className="p-2">WebSite: </label>
-              <input value={client.website}></input>
+              <div className="mb-3">
+                <label className="p-2">Name: </label>
+                <input value={client.name}></input>
+              </div>
+              <div className="mb-3">
+                <label className="p-2">Email: </label>
+                <input value={client.email}></input>
+              </div>
+              <div className="mb-3">
+                <label className="p-2">Phone: </label>
+                <input value={client.phone}></input>
+              </div>
+              <div className="mb-3">
+                <label className="p-2">WebSite: </label>
+                <input value={client.website}></input>
+              </div>
             </div>
           </div>
         </div>
