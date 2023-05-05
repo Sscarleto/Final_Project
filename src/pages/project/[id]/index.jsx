@@ -21,7 +21,7 @@ export default function ProjectPage() {
     return project;
   };
 
-  const { data: project } = useQuery({
+  const { data: project, refetch } = useQuery({
     queryKey: ["project", router.query.id],
     queryFn: getProject,
     enabled: !!router.query.id,
@@ -34,29 +34,43 @@ export default function ProjectPage() {
         <li className="nav-item">
           <a
             className={"nav-link " + (tab === "project" ? "active" : "")}
-            aria-current="page"
             href="#"
+            onClick={() => setTab("project")}
           >
             Project
           </a>
         </li>
         <li className="nav-item">
           <a
-            className={"nav-link" + (tab === "client" ? "client" : "")}
+            className={"nav-link " + (tab === "client" ? "active" : "")}
             href="#"
+            onClick={() => setTab("client")}
           >
             Client
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">
+          <a
+            className={
+              "nav-link disabled" + (tab === "developers" ? "active" : "")
+            }
+            href="#"
+          >
             Developers
           </a>
         </li>
       </ul>
       <div>
-        {project && <ClienteDetails className="p-4" client={project.clients} />}
-        {project && <ProjectProperty className="p-4" projects={project} />}
+        {project && tab === "client" && (
+          <ClienteDetails className="p-4" client={project.clients} />
+        )}
+        {project && tab === "project" && (
+          <ProjectProperty
+            className="p-4"
+            projects={project}
+            refetch={refetch}
+          />
+        )}
       </div>
       <Footer />
     </div>
